@@ -372,47 +372,36 @@ function openDetailModal(ticketId) {
 
   document.getElementById('detail-content').innerHTML = `
     <div class="detail-grid">
-      <div class="detail-row">
-        <span class="detail-label">Ticket #</span>
-        <span class="detail-value">${escHtml(ticket.number)}</span>
-      </div>
-      <div class="detail-row">
-        <span class="detail-label">Date</span>
-        <span class="detail-value">${ticket.date}</span>
-      </div>
-      <div class="detail-row" style="grid-column:1/-1">
-        <span class="detail-label">Description</span>
-        <span class="detail-value">${escHtml(ticket.description)}</span>
-      </div>
-      <div class="detail-row">
-        <span class="detail-label">Labor Hours</span>
-        <span class="detail-value">${Number(ticket.hours || 0).toFixed(2)} hrs</span>
-      </div>
-      <div class="detail-row">
-        <span class="detail-label">Hourly Rate</span>
-        <span class="detail-value">${currency(ticket.rate)}/hr</span>
-      </div>
-      <div class="detail-row">
-        <span class="detail-label">Labor Cost</span>
-        <span class="detail-value">${currency(labor)}</span>
-      </div>
-      <div class="detail-row">
-        <span class="detail-label">Materials</span>
-        <span class="detail-value">${currency(ticket.materials)}</span>
-      </div>
-      <div class="detail-row">
-        <span class="detail-label">Total</span>
-        <span class="detail-value" style="color:var(--primary);font-size:1.1rem">${currency(total)}</span>
-      </div>
-      <div class="detail-row">
-        <span class="detail-label">Status</span>
-        <span class="detail-value">${statusBadge(ticket.status)}</span>
-      </div>
+      <span class="detail-label">Ticket #</span>
+      <span class="detail-value">${escHtml(ticket.number)}</span>
+
+      <span class="detail-label">Date</span>
+      <span class="detail-value">${ticket.date}</span>
+
+      <span class="detail-label detail-span">Description</span>
+      <span class="detail-value detail-span">${escHtml(ticket.description)}</span>
+
+      <span class="detail-label">Labor Hours</span>
+      <span class="detail-value">${Number(ticket.hours || 0).toFixed(2)} hrs</span>
+
+      <span class="detail-label">Hourly Rate</span>
+      <span class="detail-value">${currency(ticket.rate)}/hr</span>
+
+      <span class="detail-label">Labor Cost</span>
+      <span class="detail-value">${currency(labor)}</span>
+
+      <span class="detail-label">Materials</span>
+      <span class="detail-value">${currency(ticket.materials)}</span>
+
+      <span class="detail-label">Total</span>
+      <span class="detail-value detail-total">${currency(total)}</span>
+
+      <span class="detail-label">Status</span>
+      <span class="detail-value">${statusBadge(ticket.status)}</span>
+
       ${ticket.notes ? `
-      <div style="grid-column:1/-1;margin-top:.5rem">
-        <span class="detail-label">Notes</span>
-        <div class="detail-notes">${escHtml(ticket.notes)}</div>
-      </div>` : ''}
+      <span class="detail-label detail-span">Notes</span>
+      <div class="detail-notes detail-span">${escHtml(ticket.notes)}</div>` : ''}
     </div>
   `;
 
